@@ -1,0 +1,7 @@
+{
+  "/api": {
+    "target": "https://multiposting-fm82.onrender.com",
+    "changeOrigin": true,
+    "secure": true
+  }
+}
