@@ -25,38 +25,40 @@ const NAV_ITEMS: NavItem[] = [
   template: `
     <div class="min-h-screen bg-white dark:bg-slate-950 text-slate-800 dark:text-slate-100">
       <app-toast-host />
-      <div class="mx-auto flex max-w-6xl gap-6 px-4 py-6">
-        <aside class="w-56 shrink-0">
-          <div class="mb-6">
-            <p class="text-lg font-semibold text-slate-900 dark:text-white">MultiPosting</p>
-            @if (email(); as mail) {
-              <p class="truncate text-xs text-slate-500" [title]="mail">{{ mail }}</p>
-            }
+      <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-4 md:flex-row md:gap-6 md:py-6">
+        <aside class="md:w-56 md:shrink-0">
+          <div class="mb-3 flex items-center justify-between gap-2 md:mb-6 md:block">
+            <div class="min-w-0">
+              <p class="text-lg font-semibold text-slate-900 dark:text-white">MultiPosting</p>
+              @if (email(); as mail) {
+                <p class="truncate text-xs text-slate-500" [title]="mail">{{ mail }}</p>
+              }
+            </div>
+            <button
+              type="button"
+              (click)="theme.toggle()"
+              class="flex shrink-0 items-center gap-1 rounded-md border border-slate-200 dark:border-slate-800 px-2.5 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 md:mt-4 md:mb-4 md:w-full md:justify-between md:px-3"
+            >
+              <span class="hidden md:inline">{{ theme.theme() === 'dark' ? 'Тёмная тема' : 'Светлая тема' }}</span>
+              <span>{{ theme.theme() === 'dark' ? '🌙' : '☀️' }}</span>
+            </button>
           </div>
-          <button
-            type="button"
-            (click)="theme.toggle()"
-            class="mb-4 flex w-full items-center justify-between rounded-md border border-slate-200 dark:border-slate-800 px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900"
-          >
-            <span>{{ theme.theme() === 'dark' ? 'Тёмная тема' : 'Светлая тема' }}</span>
-            <span>{{ theme.theme() === 'dark' ? '🌙' : '☀️' }}</span>
-          </button>
-          <nav class="flex flex-col gap-1">
+          <nav class="-mx-4 flex gap-1 overflow-x-auto px-4 pb-2 md:mx-0 md:flex-col md:overflow-visible md:px-0 md:pb-0">
             @for (item of navItems; track item.path) {
               <a
                 [routerLink]="item.path"
                 routerLinkActive="bg-sky-100 dark:bg-sky-500/10 text-sky-700 dark:text-sky-300 border-sky-300 dark:border-sky-800"
-                class="rounded-md border border-transparent px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900"
+                class="shrink-0 whitespace-nowrap rounded-md border border-transparent px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 md:shrink md:whitespace-normal"
               >
                 <span class="block">{{ item.label }}</span>
-                <span class="block text-[11px] text-slate-500">{{ item.hint }}</span>
+                <span class="hidden text-[11px] text-slate-500 md:block">{{ item.hint }}</span>
               </a>
             }
           </nav>
           <button
             type="button"
             (click)="logout()"
-            class="mt-6 w-full rounded-md border border-slate-200 dark:border-slate-800 px-3 py-2 text-sm text-slate-400 hover:border-red-400 dark:hover:border-red-800 hover:text-red-700 dark:hover:text-red-300"
+            class="mt-3 w-full rounded-md border border-slate-200 dark:border-slate-800 px-3 py-2 text-sm text-slate-400 hover:border-red-400 dark:hover:border-red-800 hover:text-red-700 dark:hover:text-red-300 md:mt-6"
           >
             Выйти
           </button>

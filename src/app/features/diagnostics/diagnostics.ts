@@ -33,8 +33,8 @@ import { SOCIAL_MEDIA_OPTIONS, SocialMedia } from '../../core/models/api.models'
 
     <section class="mb-6 max-w-lg rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
       <p class="mb-2 text-sm font-medium text-slate-900 dark:text-white">GET /api/MultiPost</p>
-      <div class="flex items-end gap-2">
-        <label class="flex-1 text-sm text-slate-600 dark:text-slate-300">
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-end">
+        <label class="text-sm text-slate-600 dark:text-slate-300 sm:flex-1">
           Post id (uuid, optional)
           <input
             type="text"
@@ -57,7 +57,7 @@ import { SOCIAL_MEDIA_OPTIONS, SocialMedia } from '../../core/models/api.models'
         <button
           type="button"
           (click)="lookupMultiPost()"
-          class="rounded-md border border-slate-300 dark:border-slate-700 px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:border-sky-600"
+          class="w-full rounded-md border border-slate-300 dark:border-slate-700 px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:border-sky-600 sm:w-auto"
         >
           Fetch
         </button>
@@ -69,8 +69,8 @@ import { SOCIAL_MEDIA_OPTIONS, SocialMedia } from '../../core/models/api.models'
 
     <section class="max-w-lg rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4">
       <p class="mb-2 text-sm font-medium text-slate-900 dark:text-white">GET /api/AccessToken</p>
-      <div class="flex items-end gap-2">
-        <label class="flex-1 text-sm text-slate-600 dark:text-slate-300">
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-end">
+        <label class="text-sm text-slate-600 dark:text-slate-300 sm:flex-1">
           Access token id (uuid)
           <input
             type="text"
@@ -82,7 +82,7 @@ import { SOCIAL_MEDIA_OPTIONS, SocialMedia } from '../../core/models/api.models'
           type="button"
           (click)="lookupAccessToken()"
           [disabled]="!accessTokenId"
-          class="rounded-md border border-slate-300 dark:border-slate-700 px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:border-sky-600 disabled:opacity-50"
+          class="w-full rounded-md border border-slate-300 dark:border-slate-700 px-3 py-2 text-sm text-slate-600 dark:text-slate-300 hover:border-sky-600 disabled:opacity-50 sm:w-auto"
         >
           Fetch
         </button>

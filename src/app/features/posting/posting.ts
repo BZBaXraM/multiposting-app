@@ -74,17 +74,17 @@ function emptyMeta(): TargetMeta {
                   type="checkbox"
                   [checked]="isSelected(asset.id)"
                   (change)="toggle(asset.id)"
-                  class="h-4 w-4"
+                  class="h-4 w-4 shrink-0"
                 />
                 @if (asset.imageUrl) {
-                  <img [src]="asset.imageUrl" class="h-8 w-8 rounded-full object-cover" alt="" />
+                  <img [src]="asset.imageUrl" class="h-8 w-8 shrink-0 rounded-full object-cover" alt="" />
                 }
-                <span class="text-sm text-slate-900 dark:text-white">{{ asset.name }}</span>
-                <span class="text-xs text-slate-500">{{ asset.socialMedia }}</span>
+                <span class="min-w-0 flex-1 truncate text-sm text-slate-900 dark:text-white">{{ asset.name }}</span>
+                <span class="shrink-0 text-xs text-slate-500">{{ asset.socialMedia }}</span>
               </label>
 
               @if (isSelected(asset.id)) {
-                <div class="mt-3 grid grid-cols-2 gap-2 pl-7">
+                <div class="mt-3 grid grid-cols-1 gap-2 pl-7 sm:grid-cols-2">
                   <label class="text-xs text-slate-400">
                     Заголовок
                     <input
@@ -105,7 +105,7 @@ function emptyMeta(): TargetMeta {
                       class="mt-1 w-full rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5 text-sm text-slate-900 dark:text-white outline-none focus:border-sky-600"
                     />
                   </label>
-                  <label class="col-span-2 text-xs text-slate-400">
+                  <label class="col-span-1 text-xs text-slate-400 sm:col-span-2">
                     Описание
                     <textarea
                       [ngModel]="metaFor(asset.id).description"
@@ -123,7 +123,7 @@ function emptyMeta(): TargetMeta {
 
         <details class="mt-4">
           <summary class="cursor-pointer text-xs text-slate-500">Доп. параметры</summary>
-          <div class="mt-2 grid grid-cols-2 gap-3">
+          <div class="mt-2 grid grid-cols-1 gap-3 sm:grid-cols-3">
             <label class="text-xs text-slate-400">
               Timezone
               <input
